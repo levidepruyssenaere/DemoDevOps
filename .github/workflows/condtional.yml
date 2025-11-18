@@ -1,0 +1,29 @@
+name: If statement
+on:
+  workflow_dispatch:
+    inputs:
+      enviroment:
+        description: "Select environment"
+        required: true
+        type: choice
+        options:
+          - development
+          - staging
+          - production
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      ENVIRONMENT: ${{github.event.inputs.enviroment}}
+
+    steps:
+      - name: Aways run
+      - run: echo "Chosen environment ${{github.event.inputs.environment}}"
+
+      - name: Deploy to production
+        if: ${{ github.event.inputs.environment == 'production' }}
+        run: echo "Deploying to production!"
+
+      - name: Run in test mode (development or staging)
+        if: ${{ github.event.inputs.environment == 'development' || github.event.inputs.environment == 'staging' }}
+        run: echo "Running in test mode"
