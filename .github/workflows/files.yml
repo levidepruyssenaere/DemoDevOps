@@ -1,0 +1,14 @@
+name: Directory & File Manipulation
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Make Directory
+        run: mkdir "Mijn Documenten"
+      - name: Make file
+        run: cat "Hallo dit is mijn document" > "Mijn Documenten"/file.txt
+      - name: Show files
+        run: ls -a
