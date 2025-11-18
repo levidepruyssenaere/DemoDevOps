@@ -9,6 +9,6 @@ jobs:
       - name: Make Directory
         run: mkdir "Mijn Documenten"
       - name: Make file
-        run: cat "Hallo dit is mijn document" > "Mijn Documenten"/file.txt
+        run: echno "Hallo dit is mijn document" > "Mijn Documenten"/file.txt
       - name: Show files
         run: ls -a
