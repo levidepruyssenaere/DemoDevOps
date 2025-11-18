@@ -2,7 +2,7 @@ name: If statement
 on:
   workflow_dispatch:
     inputs:
-      enviroment:
+      environment:
         description: "Select environment"
         required: true
         type: choice
@@ -14,11 +14,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      ENVIRONMENT: ${{github.event.inputs.enviroment}}
+      ENVIRONMENT: ${{ github.event.inputs.environment }}
 
     steps:
       - name: Aways run
-        run: echo "Chosen environment ${{github.event.inputs.environment}}"
+        run: echo "Chosen environment ${{ github.event.inputs.environment }}"
 
       - name: Deploy to production
         if: ${{ github.event.inputs.environment == 'production' }}
