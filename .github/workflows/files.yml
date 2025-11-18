@@ -11,4 +11,4 @@ jobs:
       - name: Make file
         run: echo "Hallo dit is mijn document" > "Mijn Documenten"/file.txt
       - name: Show files
-        run: ls -a
+        run: ls -a "Mijn Documenten"
