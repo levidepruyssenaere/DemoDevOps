@@ -1,0 +1,13 @@
+name: Isuue Trigger
+on:
+  issues:
+    types: [opened]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Log Issue
+        run: |
+          echo "Issue Information Log"
+          echo "Title: {{github.event.issue.title}}"
+          echo "Body: {{github.event.issue.body}}"
